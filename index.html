@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Курсед Монтекки | Обо мне и правила</title>
+    <!-- Preconnect для шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Основной шрифт: Inter + дополнительный для акцентов -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (бесплатные иконки) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f9f5f0 0%, #efe5db 100%);
+            font-family: 'Inter', sans-serif;
+            color: #2c241a;
+            scroll-behavior: smooth;
+            line-height: 1.4;
+        }
+
+        /* Кастомный скролл */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e3d8cf;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b98f6b;
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.8rem;
+        }
+
+        /* Стили карточек и градиенты */
+        .glass-card {
+            background: rgba(255, 252, 245, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 2.5rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0,0,0,0.02);
+            padding: 1.8rem 2rem;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255,245,235,0.7);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 28px 38px -18px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 253, 250, 0.92);
+        }
+
+        /* Хедер с аватаром и фоном */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #fff3e8 0%, #faeede 100%);
+            border-radius: 3rem;
+            padding: 2rem;
+            box-shadow: 0 12px 28px -12px rgba(0,0,0,0.12);
+        }
+        .avatar-frame {
+            background: white;
+            border-radius: 50%;
+            padding: 6px;
+            box-shadow: 0 15px 25px -10px rgba(0,0,0,0.2);
+        }
+        .avatar {
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(125deg, #d9b48b, #c3936b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.8rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-info h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            background: linear-gradient(120deg, #3f2e22, #826349);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-tag {
+            background: #e9dbcf;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #5e3e28;
+            margin-top: 0.5rem;
+        }
+
+        /* Сетка */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        /* Правила в виде стильного списка */
+        .rules-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .rules-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.1rem;
+            font-weight: 500;
+            padding: 0.2rem 0;
+            border-bottom: 1px dashed #f0e2d6;
+        }
+        .rules-list i {
+            width: 30px;
+            font-size: 1.3rem;
+            color: #b07952;
+        }
+
+        .badge-icon {
+            background: #e9d9cd;
+            border-radius: 60px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #6b442e;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0 0;
+        }
+        .contact-btn {
+            background: #ffffffdb;
+            border-radius: 100px;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            color: #3e2a1f;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #e2cfbf;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .contact-btn i {
+            font-size: 1.2rem;
+            color: #976b46;
+        }
+        .contact-btn:hover {
+            background: #f4e7dd;
+            border-color: #cba47e;
+            transform: scale(1.02);
+        }
+
+        .vk-profile {
+            background: linear-gradient(115deg, #e8eef4, #ffffff);
+            border-left: 5px solid #4c75a3;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            border-top: 1px solid #ddcfc2;
+            padding-top: 2rem;
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #362415;
+        }
+        h3 {
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 0.7rem;
+            color: #4e3522;
+        }
+        .highlight-name {
+            font-weight: 700;
+            background: #e4d3c5;
+            padding: 0 6px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        .bio-placeholder {
+            background: #fcf7f2;
+            border-radius: 28px;
+            padding: 1.4rem;
+            margin-top: 1rem;
+            border-left: 4px solid #ccaa88;
+            font-style: italic;
+        }
+        @media (max-width: 680px) {
+            .container {
+                padding: 1rem;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .glass-card {
+                padding: 1.3rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+        .bounce-in {
+            animation: fadeUp 0.5s ease-out;
+        }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .vivid-icon {
+            color: #bd8a60;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Шапка с профилем, ником, прямой ссылкой на ВК -->
+    <div class="hero bounce-in">
+        <div class="avatar-frame">
+            <div class="avatar">
+                <span>КМ</span>
+            </div>
+        </div>
+        <div class="hero-info">
+            <h1>Курсед Монтекки</h1>
+            <div class="hero-tag">
+                <i class="fas fa-crown" style="margin-right: 6px;"></i> cursed_pharaon · 14 лет
+            </div>
+            <p style="margin-top: 12px; max-width: 450px;">Привет! Я Курсед — футбол в сердце, движение в душе. Добро пожаловать в моё пространство, где ценят уважение и искренность.</p>
+            <div class="contact-links" style="margin-top: 0.8rem;">
+                <a href="https://vk.com/kalashnikov3002" target="_blank" class="contact-btn" rel="noopener noreferrer">
+                    <i class="fab fa-vk"></i> VK профиль
+                </a>
+                <a href="https://t.me/cursed_pharaon" target="_blank" class="contact-btn" rel="noopener noreferrer">
+                    <i class="fab fa-telegram-plane"></i> Telegram
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Две основные колонки: Биография (с возможностью дописать) и VK профиль / увлечения -->
+    <div class="grid-2">
+        <!-- БЛОК БИОГРАФИИ (с возможностью добавить позже) -->
+        <div class="glass-card">
+            <h2><i class="fas fa-feather-alt vivid-icon"></i> Биография</h2>
+            <div>
+                <p><strong>Имя:</strong> <span class="highlight-name">«скрыто»</span> (пока инкогнито, но душа открыта ✨)</p>
+                <p><strong>Возраст:</strong> 14 лет — время драйва и открытий</p>
+                <p><strong>Никнейм:</strong> Курсед Монтекки | <i class="fab fa-telegram"></i> cursed_pharaon</p>
+                <p><strong>Увлечения:</strong> ⚽ Футбол — моя стихия (играю, болею, живу игрой), активный отдых, музыка и атмосферные вечера.</p>
+                <div class="bio-placeholder">
+                    <i class="fas fa-pen-fancy" style="margin-right: 8px; color:#b87c54;"></i> 
+                    <strong>«Немного обо мне (расширю позже)»</strong><br>
+                    Родился под знаком свободы. Люблю честность, футбольные баталии на школьном стадионе, а по вечерам — анализировать крутые моменты матчей. Верю, что каждый день — новый матч, и к нему нужно готовиться с улыбкой. В будущем добавлю больше из своих путешествий и историй... а пока — рад знакомству!
+                </div>
+                <!-- Здесь можно легко вставить полную биографию, которую вы скинете позже! 
+                     Просто замените текст выше или добавьте новый абзац. Сайт готов принять любые правки -->
+                <div class="badge-icon" style="margin-top: 1rem;">
+                    <i class="fas fa-hourglass-half"></i> История дополнится...
+                </div>
+            </div>
+        </div>
+
+        <!-- ПРОФИЛЬ ВК + КОНТАКТЫ И УВЛЕЧЕНИЯ ПОДРОБНО -->
+        <div class="glass-card vk-profile">
+            <h2><i class="fab fa-vk vivid-icon"></i> Мой VK & Контакты</h2>
+            <p style="margin-bottom: 0.75rem;">Страница ВКонтакте — моё творческое зеркало. Там делюсь мыслями, футбольными нарезками и настроением.</p>
+            <div style="background: #ffffffa6; border-radius: 28px; padding: 1rem; margin: 1rem 0;">
+                <div><i class="fab fa-vk" style="width: 28px; color:#2c6496;"></i> <strong>ВК:</strong> @kalashnikov3002</div>
+                <div style="margin-top: 10px;"><i class="fab fa-telegram" style="width: 28px; color:#2a8fc9;"></i> <strong>Telegram:</strong> @cursed_pharaon</div>
+                <div style="margin-top: 10px;"><i class="fas fa-futbol" style="width: 28px; color:#a56c3e;"></i> <strong>Любимый клуб:</strong> ⚡ Страсть к футболу без границ (спроси меня о любимых командах)</div>
+            </div>
+            <a href="https://vk.com/kalashnikov3002" target="_blank" class="contact-btn" style="background:#e5eff9; justify-content: center; width: fit-content;">
+                <i class="fab fa-vk"></i> Перейти в VK профиль
+            </a>
+            <div class="badge-icon" style="margin-top: 1rem; background:#e0cfbf;">
+                <i class="fas fa-hand-peace"></i> Открыт для общения по делу
+            </div>
+        </div>
+    </div>
+
+    <!-- ПРАВИЛА ПЕРЕД НАПИСАНИЕМ (основной блок) -->
+    <div class="glass-card" style="margin: 2rem 0 1rem;">
+        <h2><i class="fas fa-shield-alt vivid-icon"></i> Кодекс общения • важно прочитать</h2>
+        <p style="margin-bottom: 1.2rem; font-weight: 500; opacity: 0.9;">Прежде чем написать мне или оставить сообщение, пожалуйста, уважай эти простые принципы — они делают наше общение комфортным и безопасным.</p>
+        <div class="grid-2" style="margin: 0; gap: 1.5rem;">
+            <div>
+                <ul class="rules-list">
+                    <li><i class="fas fa-ban"></i> <span><strong>Не материться</strong> — никакой грубости и нецензурной лексики.</span></li>
+                    <li><i class="fas fa-user-slash"></i> <span><strong>Не оскорблять</strong> — ни меня, ни других людей. Общение строится на взаимном уважении.</span></li>
+                    <li><i class="fas fa-comment-slash"></i> <span><strong>Не флудить</strong> — спам, бессмысленные сообщения, капс и повторы запрещены.</span></li>
+                    <li><i class="fas fa-phone-slash"></i> <span><strong>Не звонить без спроса</strong> — пожалуйста, сначала напиши в чат, договорись о времени звонка (если он нужен).</span></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="rules-list">
+                    <li><i class="fas fa-heart" style="color:#c2673a;"></i> <span><strong>Быть вежливым</strong> — даже в споре оставайся человеком.</span></li>
+                    <li><i class="fas fa-lock"></i> <span><strong>Не распространять личную информацию</strong> — ни мою, ни чужую.</span></li>
+                    <li><i class="fas fa-theater-masks"></i> <span><strong>Никакого токсичного поведения</strong> — мы здесь для позитива и футбольного вайба.</span></li>
+                </ul>
+                <div style="background:#f5ede4; border-radius: 20px; padding: 0.8rem; margin-top: 0.5rem; font-size: 0.85rem;">
+                    <i class="fas fa-info-circle"></i> Нарушение правил = вежливое предупреждение или блокировка. Ценим уютную атмосферу!
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 1rem; text-align: right; font-size: 0.8rem;">
+            <i class="fas fa-check-circle" style="color:#689f38;"></i> действует с момента открытия страницы
+        </div>
+    </div>
+
+    <!-- Дополнительный блок про футбол и связь с ником Курсед Монтекки -->
+    <div class="grid-2">
+        <div class="glass-card">
+            <h3><i class="fas fa-futbol"></i> Мой мир ⚽</h3>
+            <p>Футбол — это не просто увлечение, это стиль жизни. Обожаю дворовые матчи, слежу за европейскими чемпионатами. Мечтаю побывать на легендарных стадионах. Также интересуюсь музыкой, дизайном и атмосферными играми. <br><span style="font-weight: 500;">Ник «Курсед Монтекки» родился из любви к загадочным образам и решительности.</span></p>
+            <div style="margin-top: 14px;">
+                <span class="badge-icon"><i class="fas fa-medal"></i> капитан дворовой команды</span>
+                <span class="badge-icon" style="margin-left: 8px;"><i class="fas fa-headphones-alt"></i> лови волну!</span>
+            </div>
+        </div>
+        <div class="glass-card">
+            <h3><i class="fas fa-envelope-open-text"></i> Как и о чем писать?</h3>
+            <p>✅ По делу — про футбол, обмен мнениями, дружеское общение.<br>
+            ✅ Если хочешь предложить игру или интересную тему — пиши смело в Telegram / VK.<br>
+            ❌ Без соблюдения правил выше — мой ответ может быть сухим или отсутствовать. Уважай мои и чужие границы.<br>
+            <i class="fas fa-star" style="color:#d4af37;"></i> <strong>Помни:</strong> я обычный парень, который ценит адекватных собеседников.</p>
+            <div class="contact-links" style="margin-top: 0.9rem;">
+                <div><i class="fab fa-telegram-plane"></i> @cursed_pharaon</div>
+                <div><i class="fab fa-vk"></i> vk.com/kalashnikov3002</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Дополнительная заметка про мою биографию "скину позже" - визуальный блок с подсказкой -->
+    <div style="background: #fff2e8; border-radius: 2rem; padding: 1rem 2rem; margin: 1rem 0; text-align: center; border: 1px solid #f2e1d2;">
+        <i class="fas fa-dove" style="font-size: 1.6rem; vertical-align: middle; margin-right: 10px; color:#aa7c5a;"></i>
+        <span style="font-weight: 500;">📖 Биография дополняется: совсем скоро здесь появится полная история, интересные факты и футбольные достижения. Следи за обновлениями в моём ВК!</span>
+    </div>
+
+    <div class="footer-note">
+        <i class="far fa-copyright"></i> Курсед Монтекки | 14 лет, футбольный движ | правила обязательны к прочтению <br>
+        — создано с уважением к каждому собеседнику —
+    </div>
+</div>
+
+<!-- Небольшой скрипт для атмосферы (консоль тихо приветствует) -->
+<script>
+    (function() {
+        console.log("%c✨ Добро пожаловать на страницу Курсед Монтекки! Уважай правила и будь на связи ✨", "color: #a56e48; font-size: 14px; font-weight: bold;");
+        // Можно добавить динамический год или ничего лишнего.
+        const yearSpan = document.querySelector('.footer-note');
+        // просто декоративно, ничего ломающего
+    })();
+</script>
+</body>
+</html>
